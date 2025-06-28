@@ -76,7 +76,7 @@ const Root = () => {
   );
 
   return (
-    <div className="drawer drawer-end">
+    <div className="drawer drawer-end bg-[#030712]">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
 
       {/* Page content */}
@@ -131,9 +131,8 @@ const Root = () => {
         </div>
 
         {/* Page content below navbar */}
-        <div className="flex-1 my-22">
+        <div className="flex-1 pt-20 pb-10 px-4 sm:px-6 lg:px-12 xl:px-24 min-h-[calc(100vh-5rem)]">
           <Outlet />
-          <Footer></Footer>
         </div>
       </div>
 

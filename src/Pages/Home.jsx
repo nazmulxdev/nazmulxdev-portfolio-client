@@ -40,7 +40,7 @@ const Home = () => {
   const stats = [
     { value: 12, label: "Projects Completed", icon: <FaProjectDiagram /> },
     { value: 500, label: "GitHub Commits", icon: <FaCode /> },
-    { value: 5, label: "Technologies", icon: <FaServer /> },
+    { value: 15, label: "Technologies", icon: <FaServer /> },
   ];
 
   return (
