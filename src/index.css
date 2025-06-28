@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true;
+  --color-primary: #00ff94;
+  --color-primary-content: #ffffff;
+}
+
+.active {
+  @apply text-primary underline hover:text-primary-content;
+}
