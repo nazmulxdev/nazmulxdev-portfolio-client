@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FiGithub, FiExternalLink, FiServer } from "react-icons/fi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -14,58 +14,85 @@ const Project = () => {
 
   const projects = [
     {
-      name: "E-Commerce Platform",
+      name: "Gardening Community",
       description:
-        "A full-stack e-commerce solution with payment gateway integration and admin dashboard.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+        "A full-stack gardening community portal with  integration dashboard with proper information and charts and JWT authentication.",
+      technologies: [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "express.js",
+        "Firebase",
+        "JWT",
+      ],
       challenges: [
         "Implementing real-time inventory updates",
-        "Handling payment failures gracefully",
-        "Optimizing image loading for product gallery",
+        "Implement user dashboard to show the full information and others necessary details to show.",
+        "Handling JWT authentication properly to manage the authentic registered and non-registered user",
+        "Handled CRUD operation properly with JWT.",
+        "Optimizing image loading for product gallery.",
       ],
-      liveLink: "https://example-ecom.com",
-      githubLink: "https://github.com/username/ecom-platform",
-      serverLink: "https://github.com/username/ecom-server",
-      images: ["/project1-1.jpg", "/project1-2.jpg", "/project1-3.jpg"],
+      liveLink: "https://gardening-community-e4aad.web.app/",
+      githubLink:
+        "https://github.com/nazmulxdev/gardening-community-client?tab=readme-ov-file",
+      serverLink: "https://github.com/nazmulxdev/gardening-community-server",
+      images: [
+        "https://oo4bwvadds.ufs.sh/f/iO8PeJ3JYfqnGpbltGIiEPDv29A74W63rKgBMujxmw5QOcFq",
+        "https://oo4bwvadds.ufs.sh/f/iO8PeJ3JYfqn651pXFAn6mQ87KqOvziEeMBtZIXoPxFbaLuV",
+        "https://oo4bwvadds.ufs.sh/f/iO8PeJ3JYfqnRZKXca2FA7C1xJNqTk2rynZEHUdcQWsOpYfB",
+        "https://oo4bwvadds.ufs.sh/f/iO8PeJ3JYfqniFKoAuf3JYfqn0wWXr2xOBc4IDQeHlE76ydM",
+        "https://oo4bwvadds.ufs.sh/f/iO8PeJ3JYfqnwQOCdP71VunUcQdSMyIoXtxrWqk86sNmpeJY",
+      ],
     },
     {
-      name: "Task Management App",
+      name: "Food Sharing Platform",
       description:
-        "A collaborative task management application with drag-and-drop functionality.",
-      technologies: ["React", "Firebase", "Tailwind CSS", "DnD Kit"],
+        "This is food sharing Platform to share extra food. People share here extra food and add pickup location. This data are listed in the data base and showing available status but not showing expired food.",
+      technologies: [
+        "React",
+        "Firebase",
+        "Tailwind CSS",
+        "node.js",
+        "express.js",
+        "MongoDB",
+      ],
       challenges: [
         "Implementing real-time sync across users",
-        "Managing complex drag-and-drop states",
-        "Offline functionality with service workers",
+        "Manage CRUD operation properly",
+        "Managed Food according to the validation of time and date properly.",
+        "Manage all the user by unique id to manage their information in the database.",
       ],
-      liveLink: "https://example-tasks.com",
-      githubLink: "https://github.com/username/task-app",
-      serverLink: "https://github.com/username/task-server",
-      images: ["/project2-1.jpg", "/project2-2.jpg"],
+      liveLink: "https://karamplate.web.app/",
+      githubLink: "https://github.com/nazmulxdev/food-donation-website-client",
+      serverLink: "https://github.com/nazmulxdev/food-donation-website-server",
+      images: [
+        "https://oo4bwvadds.ufs.sh/f/iO8PeJ3JYfqnjIqyPpgAU0MW8ylo3kh5OVxT7t1bzNaRpSiD",
+        "https://oo4bwvadds.ufs.sh/f/iO8PeJ3JYfqnApfxp0W8BgZOsVTt3zfwNnhevpW279LyC5JH",
+        "https://oo4bwvadds.ufs.sh/f/iO8PeJ3JYfqnX4Vh0CaXwlnx3dLjZUtMHJpczTgVG0a6W24m",
+        "https://oo4bwvadds.ufs.sh/f/iO8PeJ3JYfqnSHuqqtpMq1E0X9wUfd4hL5oKzIx68tVsiRlQ",
+        "https://oo4bwvadds.ufs.sh/f/iO8PeJ3JYfqnRBkVmuFA7C1xJNqTk2rynZEHUdcQWsOpYfBe",
+        "https://oo4bwvadds.ufs.sh/f/iO8PeJ3JYfqnEYkhmaLUTgdBVi0sq1FW98vOSbXmpRMGA6Ja",
+      ],
     },
     {
-      name: "Portfolio Website",
-      description:
-        "A modern responsive portfolio showcasing my projects and skills.",
-      technologies: ["React", "Tailwind CSS", "Framer Motion", "Swiper"],
+      name: "Job Portal",
+      description: "A modern fully responsive job searching website project.",
+      technologies: ["React", "Tailwind CSS", "DaisyUI", "Firebase"],
       challenges: [
-        "Creating smooth animations without performance issues",
+        "Implementation of firebase authentication",
+        "Handle the crashing of website after hard refreshing",
         "Implementing responsive design for all devices",
-        "Optimizing loading times",
       ],
-      liveLink: "https://myportfolio.com",
-      githubLink: "https://github.com/username/portfolio",
-      images: ["/project3-1.jpg", "/project3-2.jpg", "/project3-3.jpg"],
+      liveLink: "https://jobtrack-7133a.firebaseapp.com/",
+      githubLink: "https://github.com/nazmulxdev/job-track",
+      images: [
+        "https://oo4bwvadds.ufs.sh/f/iO8PeJ3JYfqnswpRUy3Sdp6E1iKMTLtZ2OqmB5hkCr74fNPD",
+        "https://oo4bwvadds.ufs.sh/f/iO8PeJ3JYfqnGKV479IiEPDv29A74W63rKgBMujxmw5QOcFq",
+        "https://oo4bwvadds.ufs.sh/f/iO8PeJ3JYfqnIcz3LlJvXm1bgdH0TJ9VxaM6O3QGZzIFNrUc",
+        "https://oo4bwvadds.ufs.sh/f/iO8PeJ3JYfqnW6qJcCMei2KkwCzUMp0Folc3vsOT54LhfPYR",
+      ],
     },
   ];
-
-  // Auto-rotate projects every 8 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveProject((prev) => (prev + 1) % projects.length);
-    }, 8000);
-    return () => clearInterval(interval);
-  }, [projects.length]);
 
   return (
     <section
@@ -123,7 +150,7 @@ const Project = () => {
           </div>
         </div>
 
-        {/* Project Display - Full Width */}
+        {/* Project Display */}
         <motion.div
           key={activeProject}
           initial={{ opacity: 0, x: -50 }}
@@ -132,7 +159,7 @@ const Project = () => {
           transition={{ duration: 0.5 }}
           className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center"
         >
-          {/* Image Slider - Full Width */}
+          {/* Image Slider with Autoplay */}
           <div className="w-full relative group h-64 sm:h-80 md:h-96 lg:h-[500px]">
             <Swiper
               pagination={{
@@ -143,8 +170,9 @@ const Project = () => {
               modules={[Autoplay, Pagination, Navigation]}
               className="w-full h-full rounded-xl md:rounded-2xl overflow-hidden shadow-xl md:shadow-2xl"
               autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
+                delay: 3000, // Rotate every 3 seconds
+                disableOnInteraction: false, // Continue after user interaction
+                pauseOnMouseEnter: true, // Pause when hovered
               }}
               loop={true}
             >
@@ -182,7 +210,7 @@ const Project = () => {
             />
           </div>
 
-          {/* Project Details - Responsive */}
+          {/* Project Details */}
           <div className="w-full space-y-4 sm:space-y-6 md:space-y-8 px-2 sm:px-4">
             <motion.h3
               className="text-2xl sm:text-3xl md:text-4xl font-bold"

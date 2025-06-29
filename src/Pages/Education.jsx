@@ -107,11 +107,11 @@ const Education = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          className="w-full text-center mb-12 md:mb-20"
         >
           <h2
             className="text-5xl font-bold mb-4"
@@ -119,7 +119,15 @@ const Education = () => {
           >
             Education Journey
           </h2>
-          <p className="text-xl" style={{ color: grayColor }}>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="h-1 md:h-1.5 mt-3 md:mt-4 mx-auto w-24 md:w-32"
+            style={{ backgroundColor: primaryColor, originX: 0 }}
+          />
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 mt-4 md:mt-6 max-w-2xl md:max-w-3xl mx-auto">
             My academic path and professional certifications
           </p>
         </motion.div>

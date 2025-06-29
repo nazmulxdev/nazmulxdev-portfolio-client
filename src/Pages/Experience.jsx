@@ -53,14 +53,24 @@ const Experience = () => {
 
         {/* Learning Journey */}
         <div>
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold text-white mb-12 text-center"
+            transition={{ duration: 0.5 }}
+            className="w-full text-center mb-12 md:mb-20"
           >
-            My <span style={{ color: primaryColor }}>Coding Journey</span>
-          </motion.h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+              My <span style={{ color: primaryColor }}>Coding Journey</span>
+            </h2>
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="h-1 md:h-1.5 mt-3 md:mt-4 mx-auto w-24 md:w-32 bg-primary"
+            />
+          </motion.div>
 
           <div className="space-y-12">
             {/* Education */}

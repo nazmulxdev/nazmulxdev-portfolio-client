@@ -77,7 +77,10 @@ const Contact = () => {
     setSubmitStatus(null);
     try {
       // Replace with your actual API endpoint
-      await axios.post("http://localhost:3000/contact/email", formData);
+      await axios.post(
+        "https://nazmulxdev-portfolio-server.vercel.app/contact/email",
+        formData,
+      );
       setSubmitStatus("success");
       setFormData({ name: "", subject: "", email: "", message: "" });
     } catch (error) {

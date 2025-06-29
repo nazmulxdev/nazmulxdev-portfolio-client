@@ -98,10 +98,23 @@ const About = () => {
           animate="show"
           className="space-y-8"
         >
-          <motion.div variants={item}>
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="w-full text-center mb-12 md:mb-20"
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 text-[#00ff94]">
               About <span className="text-white">Me</span>
             </h2>
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="h-1 md:h-1.5 mt-3 md:mt-4 mx-auto w-24 md:w-32 bg-primary"
+            />
           </motion.div>
 
           <motion.div
