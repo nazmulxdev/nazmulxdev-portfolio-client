@@ -1,6 +1,5 @@
 import { Link, NavLink, Outlet } from "react-router";
-import Footer from "../Component/Footer";
-import portfolioLog from "../assets/icon.png";
+import { FaRegFileCode } from "react-icons/fa";
 
 const Root = () => {
   const closeDrawer = () => {
@@ -82,18 +81,14 @@ const Root = () => {
       {/* Page content */}
       <div className="drawer-content flex flex-col min-h-screen ">
         {/* Navbar */}
-        <div className="navbar bg-base-300 w-full justify-between xl:px-48 py-3 fixed top-0 z-50 shadow-sm">
-          <div className="text-lg font-semibold text-accent flex justify-center items-center gap-2">
-            <img
-              className="text-accent w-12 md:w-16"
-              src={portfolioLog}
-              alt=""
-            />{" "}
+        <div className="navbar bg-base-300 w-full justify-between xl:px-48 py-3 fixed top-0 z-50 shadow-sm border-b-4 rounded-b-2xl border-primary">
+          <div className="text-lg font-semibold text-accent flex justify-center items-center ">
+            <FaRegFileCode className="text-primary text-xl md:text-2xl font-bold" />
             <Link
               to="/"
               className="text-base-content text-xl md:text-2xl font-bold"
             >
-              Nazmul<span className="text-accent">.</span>
+              Nazmul<span className="text-primary">.</span>
             </Link>
           </div>
 

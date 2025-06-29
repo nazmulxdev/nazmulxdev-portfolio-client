@@ -1,4 +1,3 @@
-// components/SkillsSection.jsx
 import { motion } from "framer-motion";
 import React from "react";
 import { FaReact, FaNodeJs, FaDatabase } from "react-icons/fa";
@@ -19,8 +18,8 @@ import {
 } from "react-icons/si";
 
 const Skill = () => {
-  const primaryColor = "#00ff94"; // Your primary color
-  const grayColor = "#6b7280"; // Neutral gray
+  const primaryColor = "#00ff94";
+  const grayColor = "#6b7280";
 
   const skillCategories = [
     {
@@ -73,7 +72,7 @@ const Skill = () => {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.2 }}
           className="text-center mb-16"
         >
           <motion.h2

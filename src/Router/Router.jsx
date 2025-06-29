@@ -7,6 +7,8 @@ import Education from "../Pages/Education";
 import Experience from "../Pages/Experience";
 import Project from "../Pages/Project";
 import Contact from "../Pages/Contact";
+import Loading from "../Utilities/Loading";
+import { Suspense } from "react";
 
 const Router = createBrowserRouter([
   {
@@ -15,31 +17,59 @@ const Router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: Home,
+        element: (
+          <Suspense fallback={<Loading></Loading>}>
+            <Home></Home>
+          </Suspense>
+        ),
       },
       {
         path: "/skill",
-        Component: Skill,
+        element: (
+          <Suspense fallback={<Loading></Loading>}>
+            <Skill></Skill>
+          </Suspense>
+        ),
       },
       {
         path: "/about",
-        Component: About,
+        element: (
+          <Suspense fallback={<Loading></Loading>}>
+            <About></About>
+          </Suspense>
+        ),
       },
       {
         path: "/education",
-        Component: Education,
+        element: (
+          <Suspense fallback={<Loading></Loading>}>
+            <Education></Education>
+          </Suspense>
+        ),
       },
       {
         path: "/experience",
-        Component: Experience,
+        element: (
+          <Suspense fallback={<Loading></Loading>}>
+            <Experience></Experience>
+          </Suspense>
+        ),
       },
       {
         path: "/project",
-        Component: Project,
+        element: (
+          <Suspense fallback={<Loading></Loading>}>
+            <Project></Project>
+          </Suspense>
+        ),
       },
       {
         path: "/Contact",
-        Component: Contact,
+        element: (
+          <Suspense fallback={<Loading></Loading>}>
+            <Contact></Contact>
+          </Suspense>
+        ),
       },
     ],
   },

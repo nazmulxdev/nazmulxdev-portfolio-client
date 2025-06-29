@@ -1,6 +1,4 @@
-// components/SocialCircleButton.jsx
 import { motion } from "framer-motion";
-
 const SocialCircleButton = ({
   icon: Icon,
   onClick,

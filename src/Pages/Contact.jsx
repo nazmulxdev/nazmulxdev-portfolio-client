@@ -1,4 +1,3 @@
-// components/ContactSection.jsx
 import { motion } from "framer-motion";
 import { FiPhone, FiMail, FiMapPin, FiSend, FiLinkedin } from "react-icons/fi";
 import { useState } from "react";

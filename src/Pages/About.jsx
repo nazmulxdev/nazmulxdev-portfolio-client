@@ -1,4 +1,3 @@
-// components/AboutSection.jsx
 import profilePic from "../assets/new-pic-for-profle.jpg";
 import { motion } from "framer-motion";
 import {
@@ -59,8 +58,8 @@ const About = () => {
                 style={{
                   width: 50,
                   height: 50,
-                  left: `${Math.cos(i * 1.57) * 100 + 100}px`,
-                  top: `${Math.sin(i * 1.57) * 100 + 100}px`,
+                  left: `${Math.cos(i * 1.57) * 140 + 100}px`,
+                  top: `${Math.sin(i * 1.57) * 140 + 100}px`,
                 }}
                 animate={{
                   y: [0, -15, 0],

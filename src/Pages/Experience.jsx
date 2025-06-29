@@ -1,4 +1,3 @@
-// components/ExperienceSection.jsx
 import { motion } from "framer-motion";
 import { FaCode, FaGraduationCap, FaSearch } from "react-icons/fa";
 
@@ -60,7 +59,7 @@ const Experience = () => {
             viewport={{ once: true }}
             className="text-3xl font-bold text-white mb-12 text-center"
           >
-            My <span style={{ color: primaryColor }}>Learning Journey</span>
+            My <span style={{ color: primaryColor }}>Coding Journey</span>
           </motion.h2>
 
           <div className="space-y-12">
@@ -86,7 +85,7 @@ const Experience = () => {
                   </motion.div>
                   <h3 className="text-white font-bold">Formal Training</h3>
                 </div>
-                <p className="text-gray-400 text-sm mt-2">2023 - 2024</p>
+                <p className="text-gray-400 text-sm mt-2">2024 - 2025</p>
               </div>
 
               <motion.div
@@ -163,7 +162,7 @@ const Experience = () => {
                   </motion.div>
                   <h3 className="text-white font-bold">Hands-on Projects</h3>
                 </div>
-                <p className="text-gray-400 text-sm mt-2">2023 - Present</p>
+                <p className="text-gray-400 text-sm mt-2">2025 - Present</p>
               </div>
 
               <motion.div

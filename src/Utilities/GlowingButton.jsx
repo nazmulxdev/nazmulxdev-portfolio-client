@@ -1,4 +1,3 @@
-// components/NeonButton.jsx
 import { motion } from "framer-motion";
 
 const GlowingButton = ({

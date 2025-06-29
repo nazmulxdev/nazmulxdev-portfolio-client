@@ -1,14 +1,12 @@
-// components/EducationSection.jsx
 import { motion } from "framer-motion";
 import { FaGraduationCap, FaUniversity, FaLaptopCode } from "react-icons/fa";
 import { IoIosSchool } from "react-icons/io";
 import { MdSchool } from "react-icons/md";
 
 const Education = () => {
-  // Color setup - replace #00ff94 with your exact primary color
   const primaryColor = "#00ff94";
   const primaryFaded = `${primaryColor}20`;
-  const grayColor = "#6b7280"; // Neutral gray for secondary elements
+  const grayColor = "#6b7280";
 
   const educationData = [
     {
@@ -96,7 +94,7 @@ const Education = () => {
               x: [0, (Math.random() - 0.5) * 100],
               opacity: [0.1, 0.3, 0.1],
               transition: {
-                duration: Math.random() * 15 + 10,
+                duration: Math.random() * 1 + 10,
                 repeat: Infinity,
                 repeatType: "reverse",
                 ease: "linear",

@@ -1,4 +1,3 @@
-// components/Home.jsx
 import { motion } from "framer-motion";
 import profileImage from "../assets/new-pic-for-profle.jpg";
 import {
@@ -19,10 +18,12 @@ import GlowingButton from "../Utilities/GlowingButton";
 import SocialCircleButton from "../Utilities/SocilaCircleButton";
 import { IoMdContacts } from "react-icons/io";
 import { SiMongodb, SiTailwindcss } from "react-icons/si";
+import { useNavigate } from "react-router";
 
 const Home = () => {
   const primaryColor = "#00ff94";
   const grayColor = "#6b7280";
+  const navigate = useNavigate();
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -35,6 +36,9 @@ const Home = () => {
     link.href = "/path-to-your-cv.pdf";
     link.download = "YourName_CV.pdf";
     link.click();
+  };
+  const handleContactButton = () => {
+    navigate("/contact");
   };
 
   const stats = [
@@ -74,8 +78,8 @@ const Home = () => {
                   style={{
                     width: 50,
                     height: 50,
-                    left: `${Math.cos(i * 1.57) * 100 + 100}px`,
-                    top: `${Math.sin(i * 1.57) * 100 + 100}px`,
+                    left: `${Math.cos(i * 1.57) * 140 + 100}px`,
+                    top: `${Math.sin(i * 1.57) * 140 + 100}px`,
                   }}
                   animate={{
                     y: [0, -15, 0],
@@ -107,7 +111,6 @@ const Home = () => {
             </div>
           </motion.div>
         </div>
-
         {/* 2:1 Grid Layout (Desktop) */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
           {/* Left Column (2/3 width) */}
@@ -193,12 +196,7 @@ const Home = () => {
                   Download CV
                 </GlowingButton>
 
-                <GlowingButton
-                  onClick={() =>
-                    document.getElementById("contact")?.scrollIntoView()
-                  }
-                  size="lg"
-                >
+                <GlowingButton onClick={handleContactButton} size="lg">
                   <IoMdContacts /> Contact Me
                 </GlowingButton>
               </div>
@@ -259,8 +257,8 @@ const Home = () => {
                       style={{
                         width: 50,
                         height: 50,
-                        left: `${Math.cos(i * 1.57) * 100 + 100}px`,
-                        top: `${Math.sin(i * 1.57) * 100 + 100}px`,
+                        left: `${Math.sin(i * 1.57) * 220 + 170}px`,
+                        top: `${Math.cos(i * 1.57) * 220 + 170}px`,
                       }}
                       animate={{
                         y: [0, -15, 0],
