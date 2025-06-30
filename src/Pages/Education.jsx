@@ -11,10 +11,11 @@ const Education = () => {
   const educationData = [
     {
       icon: <FaUniversity className="text-3xl" />,
-      title: "B.Sc in Electrical & Electronic Engineering",
-      institution: "Hajee Mohammad Danesh Science & Technology University",
+      title: "B.Sc in Electrical and Electronic Engineering",
+      institution:
+        "Hajee Mohammad Danesh Science & Technology University, Dinajpur",
       details: [
-        { label: "Department", value: "Electric & Electronic Engineering" },
+        { label: "Department", value: "Electrical and Electronic Engineering" },
         { label: "Session", value: "2021" },
         { label: "Current Status", value: "Level-3, Semester-II (Appeared)" },
       ],
