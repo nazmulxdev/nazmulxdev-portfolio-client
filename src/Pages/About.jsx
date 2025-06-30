@@ -126,9 +126,10 @@ const About = () => {
               <span className="text-[#00ff94] font-semibold">
                 Md Nazmul Hossen
               </span>
-              , an Electrical Engineering student form{" "}
+              , an Electrical and Electronic Engineering student form{" "}
               <span className="text-[#00ff94] font-semibold">
-                Hajee Mohammad Danesh Science and Technology University
+                Hajee Mohammad Danesh Science and Technology University,
+                Dinajpur
               </span>{" "}
               and passionate MERN stack developer. I bridge hardware knowledge
               with cutting-edge web development to create innovative digital
