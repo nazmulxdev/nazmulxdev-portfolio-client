@@ -33,8 +33,8 @@ const Home = () => {
   const handleDownloadCV = () => {
     // Replace with your actual CV download logic
     const link = document.createElement("a");
-    link.href = "/path-to-your-cv.pdf";
-    link.download = "YourName_CV.pdf";
+    link.href = "/Md-Nazmul-Hossen-MERN-Developer-Resume.pdf";
+    link.download = "Md-Nazmul-Hossen-MERN-Developer-Resume.pdf";
     link.click();
   };
   const handleContactButton = () => {
@@ -193,7 +193,7 @@ const Home = () => {
                   icon={HiDownload}
                   size="lg"
                 >
-                  Download CV
+                  Resume
                 </GlowingButton>
 
                 <GlowingButton onClick={handleContactButton} size="lg">
@@ -206,24 +206,21 @@ const Home = () => {
                 <SocialCircleButton
                   icon={FaGithub}
                   onClick={() =>
-                    window.open("https://github.com/yourusername", "_blank")
+                    window.open("https://github.com/nazmulxdev", "_blank")
                   }
                   glowColor={primaryColor}
                 />
                 <SocialCircleButton
                   icon={FaLinkedin}
                   onClick={() =>
-                    window.open(
-                      "https://linkedin.com/in/yourusername",
-                      "_blank",
-                    )
+                    window.open("https://linkedin.com/in/nazmulxdev", "_blank")
                   }
                   glowColor={primaryColor}
                 />
                 <SocialCircleButton
                   icon={FaWhatsapp}
                   onClick={() =>
-                    window.open("https://wa.me/yournumber", "_blank")
+                    window.open("https://wa.me/+8801600106065", "_blank")
                   }
                   glowColor={primaryColor}
                 />
