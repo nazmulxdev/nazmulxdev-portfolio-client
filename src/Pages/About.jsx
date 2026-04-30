@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import profilePic from "../assets/new-pic-for-profle.jpg";
 import { motion } from "framer-motion";
 import {
@@ -6,23 +7,94 @@ import {
   FaGithub,
   FaLinkedin,
   FaWhatsapp,
+  FaDocker,
+  FaGitAlt,
 } from "react-icons/fa";
 import {
   SiMongodb,
   SiExpress,
   SiTailwindcss,
-  SiFirebase,
+  SiTypescript,
+  SiNextdotjs,
+  SiPostgresql,
+  SiPrisma,
 } from "react-icons/si";
 
+// ─── Zustand Bear Icon ──────────────────────────────────────────────────────
+const ZustandIcon = ({ className = "" }) => (
+  <span className={`${className}`} role="img" aria-label="Zustand">
+    🐻
+  </span>
+);
+
+// ─── Reusable Orbit Icons ───────────────────────────────────────────────────
+const OrbitIcons = ({ containerSize, radius, iconSize = 50 }) => {
+  const icons = [
+    FaReact,
+    SiNextdotjs,
+    SiTypescript,
+    FaNodeJs,
+    SiExpress,
+    SiMongodb,
+    SiPostgresql,
+    SiPrisma,
+    SiTailwindcss,
+    FaDocker,
+    FaGitAlt,
+    ZustandIcon,
+  ];
+
+  const total = icons.length;
+  const center = containerSize / 2;
+
+  return icons.map((Icon, i) => {
+    const angle = (i / total) * 2 * Math.PI;
+    return (
+      <motion.div
+        key={i}
+        className="absolute rounded-full bg-gray-800 border border-gray-600 flex items-center justify-center"
+        style={{
+          width: iconSize,
+          height: iconSize,
+          left: `${Math.cos(angle) * radius + center - iconSize / 2}px`,
+          top: `${Math.sin(angle) * radius + center - iconSize / 2}px`,
+        }}
+        animate={{ y: [0, -10, 0] }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          delay: i * 0.3,
+          ease: "easeInOut",
+        }}
+      >
+        <Icon className="text-xl text-gray-300" />
+      </motion.div>
+    );
+  });
+};
+
+// ─── Glow Ring ──────────────────────────────────────────────────────────────
+const GlowRing = () => (
+  <motion.div
+    className="absolute inset-0 rounded-full border-4 border-transparent"
+    animate={{
+      boxShadow: [
+        "0 0 20px 5px rgba(0, 255, 148, 0.3)",
+        "0 0 30px 10px rgba(0, 255, 148, 0.5)",
+        "0 0 20px 5px rgba(0, 255, 148, 0.3)",
+      ],
+    }}
+    transition={{ duration: 4, repeat: Infinity }}
+  />
+);
+
+// ─── About Component ────────────────────────────────────────────────────────
 const About = () => {
-  // Animation variants
   const container = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
@@ -31,10 +103,69 @@ const About = () => {
     show: { opacity: 1, y: 0 },
   };
 
+  const techStack = [
+    {
+      icon: <FaReact className="text-2xl" />,
+      name: "React.js",
+      color: "#00d8ff",
+    },
+    {
+      icon: <SiNextdotjs className="text-2xl" />,
+      name: "Next.js",
+      color: "#ffffff",
+    },
+    {
+      icon: <SiTypescript className="text-2xl" />,
+      name: "TypeScript",
+      color: "#3178c6",
+    },
+    {
+      icon: <SiTailwindcss className="text-2xl" />,
+      name: "Tailwind",
+      color: "#38bdf8",
+    },
+    {
+      icon: <FaNodeJs className="text-2xl" />,
+      name: "Node.js",
+      color: "#68a063",
+    },
+    {
+      icon: <SiExpress className="text-2xl" />,
+      name: "Express",
+      color: "#ffffff",
+    },
+    {
+      icon: <SiMongodb className="text-2xl" />,
+      name: "MongoDB",
+      color: "#589636",
+    },
+    {
+      icon: <SiPostgresql className="text-2xl" />,
+      name: "PostgreSQL",
+      color: "#336791",
+    },
+    {
+      icon: <SiPrisma className="text-2xl" />,
+      name: "Prisma",
+      color: "#5a67d8",
+    },
+    {
+      icon: <span className="text-2xl">🐻</span>,
+      name: "Zustand",
+      color: "#f97316",
+    },
+    {
+      icon: <FaDocker className="text-2xl" />,
+      name: "Docker",
+      color: "#2496ed",
+    },
+    { icon: <FaGitAlt className="text-2xl" />, name: "Git", color: "#f05032" },
+  ];
+
   return (
-    <section id="about" className="py-20 px-4 bg-gray-950 overflow-hidden">
+    <section id="about" className="py-20 px-4  overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        {/* Image Section with Floating Animation */}
+        {/* Profile Image with Orbit Icons */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{
@@ -42,7 +173,7 @@ const About = () => {
             y: 0,
             transition: { type: "spring", damping: 10 },
           }}
-          className="flex justify-center mb-16"
+          className="flex justify-center mb-24"
         >
           <div className="relative w-64 h-64">
             <img
@@ -50,54 +181,19 @@ const About = () => {
               alt="Md Nazmul Hossen"
               className="w-full h-full object-cover rounded-full border-4 border-gray-700 shadow-2xl z-10 relative"
             />
-            {/* Floating Tech Icons Around Image */}
-            {[FaReact, FaNodeJs, SiMongodb, SiTailwindcss].map((Icon, i) => (
-              <motion.div
-                key={i}
-                className="absolute rounded-full bg-gray-800 border border-gray-600 flex items-center justify-center"
-                style={{
-                  width: 50,
-                  height: 50,
-                  left: `${Math.cos(i * 1.57) * 140 + 100}px`,
-                  top: `${Math.sin(i * 1.57) * 140 + 100}px`,
-                }}
-                animate={{
-                  y: [0, -15, 0],
-                  transition: {
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: i * 0.5,
-                  },
-                }}
-              >
-                <Icon className="text-2xl" />
-              </motion.div>
-            ))}
-            {/* Glow Effect */}
-            <motion.div
-              className="absolute inset-0 rounded-full border-4 border-transparent"
-              animate={{
-                boxShadow: [
-                  "0 0 20px 5px rgba(0, 255, 148, 0.3)",
-                  "0 0 30px 10px rgba(0, 255, 148, 0.5)",
-                  "0 0 20px 5px rgba(0, 255, 148, 0.3)",
-                ],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-              }}
-            />
+            <OrbitIcons containerSize={256} radius={145} iconSize={40} />
+            <GlowRing />
           </div>
         </motion.div>
 
-        {/* About Content with Staggered Animations */}
+        {/* About Content */}
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
           className="space-y-8"
         >
+          {/* Section Title */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -113,10 +209,11 @@ const About = () => {
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="h-1 md:h-1.5 mt-3 md:mt-4 mx-auto w-24 md:w-32 bg-primary"
+              className="h-1 md:h-1.5 mt-3 md:mt-4 mx-auto w-24 md:w-32 bg-[#00ff94]"
             />
           </motion.div>
 
+          {/* Intro */}
           <motion.div
             variants={item}
             className="bg-gray-800/40 p-6 rounded-2xl border border-gray-700 backdrop-blur-sm"
@@ -126,25 +223,27 @@ const About = () => {
               <span className="text-[#00ff94] font-semibold">
                 Md Nazmul Hossen
               </span>
-              , an Electrical and Electronic Engineering student form{" "}
+              , an Electrical and Electronic Engineering student from{" "}
               <span className="text-[#00ff94] font-semibold">
                 Hajee Mohammad Danesh Science and Technology University,
                 Dinajpur
               </span>{" "}
-              and passionate MERN stack developer. I bridge hardware knowledge
+              and passionate Full Stack developer. I bridge hardware knowledge
               with cutting-edge web development to create innovative digital
               solutions.
             </p>
           </motion.div>
 
+          {/* Experience */}
           <motion.div
             variants={item}
             className="bg-gray-800/40 p-6 rounded-2xl border border-gray-700 backdrop-blur-sm"
           >
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-              💻 I completed the{" "}
-              <span className="text-[#a855f7]">MERN Stack Development</span>{" "}
-              course from Programming Hero, building{" "}
+              💻 I completed{" "}
+              <span className="text-[#a855f7]">Level 1 & Level 2</span> of the
+              Full Stack Development course from{" "}
+              <span className="text-[#a855f7]">Programming Hero</span>, building{" "}
               <span className="text-[#00ff94]">
                 12+ production-ready applications
               </span>{" "}
@@ -153,7 +252,7 @@ const About = () => {
             </p>
           </motion.div>
 
-          {/* Tech Stack with Hover Effects */}
+          {/* Tech Stack */}
           <motion.div
             variants={item}
             className="bg-gray-800/40 p-6 rounded-2xl border border-gray-700 backdrop-blur-sm"
@@ -161,39 +260,8 @@ const About = () => {
             <h3 className="text-2xl font-semibold text-[#00ff94] mb-4 flex items-center">
               🚀 <span className="ml-2">Tech Stack</span>
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {[
-                {
-                  icon: <FaReact className="text-2xl" />,
-                  name: "React.js",
-                  color: "#00d8ff",
-                },
-                {
-                  icon: <SiTailwindcss className="text-2xl" />,
-                  name: "Tailwind",
-                  color: "#38bdf8",
-                },
-                {
-                  icon: <FaNodeJs className="text-2xl" />,
-                  name: "Node.js",
-                  color: "#68a063",
-                },
-                {
-                  icon: <SiExpress className="text-2xl" />,
-                  name: "Express",
-                  color: "#ffffff",
-                },
-                {
-                  icon: <SiMongodb className="text-2xl" />,
-                  name: "MongoDB",
-                  color: "#589636",
-                },
-                {
-                  icon: <SiFirebase className="text-2xl" />,
-                  name: "Firebase",
-                  color: "#ffca28",
-                },
-              ].map((tech, i) => (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {techStack.map((tech, i) => (
                 <motion.div
                   key={i}
                   whileHover={{ y: -5, scale: 1.05 }}
@@ -206,7 +274,7 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Unique Skills */}
+          {/* What Sets Me Apart */}
           <motion.div
             variants={item}
             className="bg-gray-800/40 p-6 rounded-2xl border border-gray-700 backdrop-blur-sm"
@@ -216,9 +284,10 @@ const About = () => {
             </h3>
             <ul className="space-y-3">
               {[
-                "Unique blend of engineering logic and creative design",
+                "Unique blend of EEE engineering logic and creative web design",
                 "Strong problem-solving & system design skills",
-                "Experience with authentication & dashboard UIs",
+                "Type-safe fullstack development with TypeScript + Prisma",
+                "Experience with authentication, dashboards & real-time UIs",
                 "Eager to learn and grow in fast-paced environments",
               ].map((skill, i) => (
                 <motion.li
@@ -233,7 +302,7 @@ const About = () => {
             </ul>
           </motion.div>
 
-          {/* Goals Section */}
+          {/* Goals */}
           <motion.div
             variants={item}
             className="bg-gray-800/40 p-6 rounded-2xl border border-gray-700 backdrop-blur-sm"

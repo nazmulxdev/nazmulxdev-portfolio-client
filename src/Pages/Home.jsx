@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
 import profileImage from "../assets/new-pic-for-profle.jpg";
 import {
@@ -9,6 +10,9 @@ import {
   FaServer,
   FaReact,
   FaNodeJs,
+  FaDocker,
+  FaPython,
+  FaGitAlt,
 } from "react-icons/fa";
 import { HiDownload } from "react-icons/hi";
 import Typewriter from "typewriter-effect";
@@ -17,8 +21,63 @@ import { useInView } from "react-intersection-observer";
 import GlowingButton from "../Utilities/GlowingButton";
 import SocialCircleButton from "../Utilities/SocilaCircleButton";
 import { IoMdContacts } from "react-icons/io";
-import { SiMongodb, SiTailwindcss } from "react-icons/si";
+import {
+  SiExpress,
+  SiMongodb,
+  SiNextdotjs,
+  SiPostgresql,
+  SiPrisma,
+  SiRedux,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
 import { useNavigate } from "react-router";
+
+// Reusable orbit icon renderer
+const OrbitIcons = ({ containerSize, radius, iconSize = 50 }) => {
+  const icons = [
+    FaReact,
+    SiNextdotjs,
+    SiTypescript,
+    FaNodeJs,
+    SiExpress,
+    SiMongodb,
+    SiPostgresql,
+    SiPrisma,
+    SiTailwindcss,
+    FaDocker,
+    FaGitAlt,
+    SiRedux,
+  ];
+
+  const total = icons.length;
+  const center = containerSize / 2;
+
+  return icons.map((Icon, i) => {
+    const angle = (i / total) * 2 * Math.PI;
+    return (
+      <motion.div
+        key={i}
+        className="absolute rounded-full bg-gray-800 border border-gray-600 flex items-center justify-center"
+        style={{
+          width: iconSize,
+          height: iconSize,
+          left: `${Math.cos(angle) * radius + center - iconSize / 2}px`,
+          top: `${Math.sin(angle) * radius + center - iconSize / 2}px`,
+        }}
+        animate={{ y: [0, -10, 0] }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          delay: i * 0.3,
+          ease: "easeInOut",
+        }}
+      >
+        <Icon className="text-xl text-gray-300" />
+      </motion.div>
+    );
+  });
+};
 
 const Home = () => {
   const primaryColor = "#00ff94";
@@ -31,12 +90,12 @@ const Home = () => {
   });
 
   const handleDownloadCV = () => {
-    // Replace with your actual CV download logic
     const link = document.createElement("a");
     link.href = "/Md-Nazmul-Hossen-MERN-Developer-Resume.pdf";
     link.download = "Md-Nazmul-Hossen-MERN-Developer-Resume.pdf";
     link.click();
   };
+
   const handleContactButton = () => {
     navigate("/contact");
   };
@@ -46,6 +105,20 @@ const Home = () => {
     { value: 500, label: "GitHub Commits", icon: <FaCode /> },
     { value: 15, label: "Technologies", icon: <FaServer /> },
   ];
+
+  const GlowRing = () => (
+    <motion.div
+      className="absolute inset-0 rounded-full border-4 border-transparent"
+      animate={{
+        boxShadow: [
+          "0 0 20px 5px rgba(0, 255, 148, 0.3)",
+          "0 0 30px 10px rgba(0, 255, 148, 0.5)",
+          "0 0 20px 5px rgba(0, 255, 148, 0.3)",
+        ],
+      }}
+      transition={{ duration: 4, repeat: Infinity }}
+    />
+  );
 
   return (
     <section
@@ -64,53 +137,19 @@ const Home = () => {
             }}
             className="flex justify-center mb-16"
           >
+            {/* Mobile container: w-64 h-64 = 256px */}
             <div className="relative w-64 h-64">
               <img
                 src={profileImage}
                 alt="Md Nazmul Hossen"
                 className="w-full h-full object-cover rounded-full border-4 border-gray-700 shadow-2xl z-10 relative"
               />
-              {/* Floating Tech Icons Around Image */}
-              {[FaReact, FaNodeJs, SiMongodb, SiTailwindcss].map((Icon, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute rounded-full bg-gray-800 border border-gray-600 flex items-center justify-center"
-                  style={{
-                    width: 50,
-                    height: 50,
-                    left: `${Math.cos(i * 1.57) * 140 + 100}px`,
-                    top: `${Math.sin(i * 1.57) * 140 + 100}px`,
-                  }}
-                  animate={{
-                    y: [0, -15, 0],
-                    transition: {
-                      duration: 3,
-                      repeat: Infinity,
-                      delay: i * 0.5,
-                    },
-                  }}
-                >
-                  <Icon className="text-2xl" />
-                </motion.div>
-              ))}
-              {/* Glow Effect */}
-              <motion.div
-                className="absolute inset-0 rounded-full border-4 border-transparent"
-                animate={{
-                  boxShadow: [
-                    "0 0 20px 5px rgba(0, 255, 148, 0.3)",
-                    "0 0 30px 10px rgba(0, 255, 148, 0.5)",
-                    "0 0 20px 5px rgba(0, 255, 148, 0.3)",
-                  ],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                }}
-              />
+              <OrbitIcons containerSize={256} radius={145} iconSize={40} />
+              <GlowRing />
             </div>
           </motion.div>
         </div>
+
         {/* 2:1 Grid Layout (Desktop) */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
           {/* Left Column (2/3 width) */}
@@ -134,7 +173,6 @@ const Home = () => {
                   options={{
                     strings: [
                       "Full Stack Developer",
-                      "MERN Specialist",
                       "Problem Solver",
                       "Tech Enthusiast",
                     ],
@@ -148,7 +186,7 @@ const Home = () => {
 
               <p className="text-lg mb-8 text-gray-400 max-w-2xl">
                 I build exceptional digital experiences with modern web
-                technologies. Currently specializing in MERN stack development
+                technologies. Currently specializing in Full Stack development
                 and creating responsive, user-friendly applications.
               </p>
 
@@ -170,11 +208,7 @@ const Home = () => {
                     </div>
                     <div className="text-2xl font-bold text-white">
                       {inView ? (
-                        <CountUp
-                          end={stat.value}
-                          duration={2}
-                          suffix={stat.label === "GitHub Commits" ? "+" : "+"}
-                        />
+                        <CountUp end={stat.value} duration={2} suffix="+" />
                       ) : (
                         0
                       )}
@@ -195,7 +229,6 @@ const Home = () => {
                 >
                   Resume
                 </GlowingButton>
-
                 <GlowingButton onClick={handleContactButton} size="lg">
                   <IoMdContacts /> Contact Me
                 </GlowingButton>
@@ -239,52 +272,15 @@ const Home = () => {
               }}
               className="flex justify-center mb-16"
             >
+              {/* Desktop container: w-96 h-96 = 384px */}
               <div className="relative w-96 h-96">
                 <img
                   src={profileImage}
                   alt="Md Nazmul Hossen"
                   className="w-full h-full object-cover rounded-full border-4 border-gray-700 shadow-2xl z-10 relative"
                 />
-                {/* Floating Tech Icons Around Image */}
-                {[FaReact, FaNodeJs, SiMongodb, SiTailwindcss].map(
-                  (Icon, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute rounded-full bg-gray-800 border border-gray-600 flex items-center justify-center"
-                      style={{
-                        width: 50,
-                        height: 50,
-                        left: `${Math.sin(i * 1.57) * 220 + 170}px`,
-                        top: `${Math.cos(i * 1.57) * 220 + 170}px`,
-                      }}
-                      animate={{
-                        y: [0, -15, 0],
-                        transition: {
-                          duration: 3,
-                          repeat: Infinity,
-                          delay: i * 0.5,
-                        },
-                      }}
-                    >
-                      <Icon className="text-2xl" />
-                    </motion.div>
-                  ),
-                )}
-                {/* Glow Effect */}
-                <motion.div
-                  className="absolute inset-0 rounded-full border-4 border-transparent"
-                  animate={{
-                    boxShadow: [
-                      "0 0 20px 5px rgba(0, 255, 148, 0.3)",
-                      "0 0 30px 10px rgba(0, 255, 148, 0.5)",
-                      "0 0 20px 5px rgba(0, 255, 148, 0.3)",
-                    ],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                  }}
-                />
+                <OrbitIcons containerSize={384} radius={210} iconSize={50} />
+                <GlowRing />
               </div>
             </motion.div>
           </div>
@@ -302,14 +298,11 @@ const Home = () => {
               y: [0, 15, 0],
               opacity: [0.6, 1, 0.6],
             }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-            }}
+            transition={{ duration: 2, repeat: Infinity }}
             style={{ color: primaryColor }}
             className="flex flex-col items-center cursor-pointer"
             onClick={() => document.getElementById("about")?.scrollIntoView()}
-          ></motion.div>
+          />
         </motion.div>
       </div>
     </section>

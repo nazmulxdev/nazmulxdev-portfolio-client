@@ -10,7 +10,11 @@ const Root = () => {
     <>
       <li>
         <NavLink
-          className="hover:bg-primary hover:text-primary-content"
+          className={({ isActive }) =>
+            isActive
+              ? "text-[#00ff94] font-bold"
+              : "hover:text-[#00ff94] transition-colors"
+          }
           to="/"
           onClick={handleClick}
         >
@@ -19,7 +23,11 @@ const Root = () => {
       </li>
       <li>
         <NavLink
-          className="hover:bg-primary hover:text-primary-content"
+          className={({ isActive }) =>
+            isActive
+              ? "text-[#00ff94] font-bold"
+              : "hover:text-[#00ff94] transition-colors"
+          }
           to="/about"
           onClick={handleClick}
         >
@@ -28,7 +36,11 @@ const Root = () => {
       </li>
       <li>
         <NavLink
-          className="hover:bg-primary hover:text-primary-content"
+          className={({ isActive }) =>
+            isActive
+              ? "text-[#00ff94] font-bold"
+              : "hover:text-[#00ff94] transition-colors"
+          }
           to="/skill"
           onClick={handleClick}
         >
@@ -37,7 +49,11 @@ const Root = () => {
       </li>
       <li>
         <NavLink
-          className="hover:bg-primary hover:text-primary-content"
+          className={({ isActive }) =>
+            isActive
+              ? "text-[#00ff94] font-bold"
+              : "hover:text-[#00ff94] transition-colors"
+          }
           to="/education"
           onClick={handleClick}
         >
@@ -46,7 +62,11 @@ const Root = () => {
       </li>
       <li>
         <NavLink
-          className="hover:bg-primary hover:text-primary-content"
+          className={({ isActive }) =>
+            isActive
+              ? "text-[#00ff94] font-bold"
+              : "hover:text-[#00ff94] transition-colors"
+          }
           to="/Experience"
           onClick={handleClick}
         >
@@ -55,7 +75,11 @@ const Root = () => {
       </li>
       <li>
         <NavLink
-          className="hover:bg-primary hover:text-primary-content"
+          className={({ isActive }) =>
+            isActive
+              ? "text-[#00ff94] font-bold"
+              : "hover:text-[#00ff94] transition-colors"
+          }
           to="/project"
           onClick={handleClick}
         >
@@ -64,7 +88,11 @@ const Root = () => {
       </li>
       <li>
         <NavLink
-          className="hover:bg-primary hover:text-primary-content"
+          className={({ isActive }) =>
+            isActive
+              ? "text-[#00ff94] font-bold"
+              : "hover:text-[#00ff94] transition-colors"
+          }
           to="/contact"
           onClick={handleClick}
         >
@@ -75,37 +103,38 @@ const Root = () => {
   );
 
   return (
-    <div className="drawer drawer-end bg-[#030712]">
+    /* ✅ portfolio-bg applied ONCE here — all pages inherit it */
+    <div className="portfolio-bg drawer drawer-end min-h-screen">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
 
       {/* Page content */}
-      <div className="drawer-content flex flex-col min-h-screen ">
-        {/* Navbar */}
-        <div className="navbar bg-base-300 w-full justify-between xl:px-48 py-3 fixed top-0 z-50 shadow-sm border-b-4 rounded-b-2xl border-primary">
-          <div className="text-lg font-semibold text-accent flex justify-center items-center ">
-            <FaRegFileCode className="text-primary text-xl md:text-2xl font-bold" />
-            <Link
-              to="/"
-              className="text-base-content text-xl md:text-2xl font-bold"
-            >
-              Nazmul<span className="text-primary">.</span>
+      <div className="drawer-content flex flex-col min-h-screen">
+        {/* Navbar — glassmorphism so bg shows through */}
+        <div
+          className="navbar w-full justify-between xl:px-48 py-3 fixed top-0 z-50 border-b border-[#00ff94]/20 rounded-b-2xl backdrop-blur-md"
+          style={{ backgroundColor: "rgba(3, 7, 18, 0.85)" }}
+        >
+          <div className="text-lg font-semibold flex justify-center items-center gap-1">
+            <FaRegFileCode className="text-[#00ff94] text-xl md:text-2xl" />
+            <Link to="/" className="text-white text-xl md:text-2xl font-bold">
+              Nazmul<span className="text-[#00ff94]">.</span>
             </Link>
           </div>
 
           <div className="flex items-center gap-4">
-            {/* Navbar menu for large screens */}
+            {/* Desktop nav */}
             <div className="hidden md:block">
-              <ul className="menu menu-horizontal px-1 font-bold">
+              <ul className="menu menu-horizontal px-1 font-bold text-gray-300">
                 {NavBarLinks(() => {})}
               </ul>
             </div>
 
-            {/* Hamburger for mobile */}
+            {/* Mobile hamburger */}
             <div className="md:hidden">
               <label
                 htmlFor="my-drawer-4"
                 aria-label="open sidebar"
-                className="btn btn-square btn-ghost"
+                className="btn btn-square btn-ghost text-gray-300"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -125,8 +154,8 @@ const Root = () => {
           </div>
         </div>
 
-        {/* Page content below navbar */}
-        <div className="flex-1 pt-20 pb-10 px-4 sm:px-6 lg:px-12 xl:px-24 min-h-[calc(100vh-5rem)]">
+        {/* Outlet — no bg set, inherits portfolio-bg from root */}
+        <div className="flex-1 pt-16 min-h-[calc(100vh-4rem)]">
           <Outlet />
         </div>
       </div>
@@ -134,14 +163,14 @@ const Root = () => {
       {/* Right-side drawer */}
       <div className="drawer-side z-50">
         <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
-        <div className="w-64 min-h-full bg-base-200 flex flex-col justify-start items-start px-6 py-8">
-          {/* Drawer Title */}
-          <div className="text-2xl font-bold text-primary mb-6">
-            Nazmul<span className="text-base-content">.</span>
+        <div
+          className="w-64 min-h-full flex flex-col justify-start items-start px-6 py-8 border-l border-[#00ff94]/10"
+          style={{ backgroundColor: "rgba(3, 7, 18, 0.97)" }}
+        >
+          <div className="text-2xl font-bold text-[#00ff94] mb-6">
+            Nazmul<span className="text-white">.</span>
           </div>
-
-          {/* Navigation Links */}
-          <ul className="menu space-y-2 w-full text-base-content">
+          <ul className="menu space-y-2 w-full text-gray-300 font-semibold">
             {NavBarLinks(closeDrawer)}
           </ul>
         </div>

@@ -1,12 +1,34 @@
+/* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
-import { FaGraduationCap, FaUniversity, FaLaptopCode } from "react-icons/fa";
+import {
+  FaGraduationCap,
+  FaUniversity,
+  FaLaptopCode,
+  FaNodeJs,
+  FaReact,
+} from "react-icons/fa";
 import { IoIosSchool } from "react-icons/io";
+import { TbBrandAws } from "react-icons/tb";
 import { MdSchool } from "react-icons/md";
+import { RiTailwindCssFill } from "react-icons/ri";
+import {
+  SiTypescript,
+  SiNextdotjs,
+  SiPostgresql,
+  SiPrisma,
+  SiDocker,
+  SiNginx,
+  SiGo,
+  SiExpress,
+  SiMongodb,
+  SiFirebase,
+  SiJsonwebtokens,
+  SiJavascript,
+} from "react-icons/si";
 
 const Education = () => {
   const primaryColor = "#00ff94";
   const primaryFaded = `${primaryColor}20`;
-  const grayColor = "#6b7280";
 
   const educationData = [
     {
@@ -17,7 +39,10 @@ const Education = () => {
       details: [
         { label: "Department", value: "Electrical and Electronic Engineering" },
         { label: "Session", value: "2021" },
-        { label: "Current Status", value: "Level-3, Semester-II (Appeared)" },
+        {
+          label: "Current Status",
+          value: "Appeared in Final Semester (Level-4, Semester-II)",
+        },
       ],
       year: "2021 - Present",
     },
@@ -50,24 +75,76 @@ const Education = () => {
   const coursesData = [
     {
       icon: <FaLaptopCode className="text-3xl" />,
-      title: "MERN Stack Development",
-      institution: "Programming Hero",
+      title: "Next Level Web Development",
+      institution: "Programming Hero — Level 2",
+      badge: "Advanced",
+      badgeColor: "#00ff94",
       description:
-        "Completed comprehensive training in full-stack web development using MongoDB, Express, React, and Node.js",
+        "Industry-standard full-stack development covering TypeScript, Next.js, PostgreSQL, Prisma ORM, Docker, Nginx, Golang, and AWS. Built 2 production-grade projects: PH Healthcare & PH Tour Management System.",
+      tags: [
+        { icon: <SiTypescript />, label: "TypeScript", color: "#3178c6" },
+        { icon: <SiNextdotjs />, label: "Next.js", color: "#ffffff" },
+        { icon: <SiPostgresql />, label: "PostgreSQL", color: "#336791" },
+        { icon: <SiPrisma />, label: "Prisma", color: "#a5b4fc" },
+        { icon: <SiDocker />, label: "Docker", color: "#2496ed" },
+        { icon: <SiNginx />, label: "Nginx", color: "#009900" },
+        { icon: <SiGo />, label: "Golang", color: "#00add8" },
+        { icon: <TbBrandAws />, label: "AWS", color: "#ff9900" },
+      ],
+      missions: [
+        "TypeScript — Basic, Advanced & OOP",
+        "Node.js, Express & SQL with PostgreSQL",
+        "RDBMS, DB Normalization & Advanced SQL",
+        "Prisma ORM & Next.js with Auth System",
+        "Full Stack AI-integrated Healthcare App",
+        "Full Stack Tour Management App with Golang",
+        "Docker — Images, Volumes, Networks & Compose",
+        "Nginx — Reverse Proxy & Load Balancing",
+        "AWS — S3, IAM, EC2, Linux & CI/CD",
+        "Unit & Integration Testing (Jest + Supertest)",
+        "Software Engineering & Design Architecture",
+      ],
     },
     {
       icon: <FaLaptopCode className="text-3xl" />,
-      title: "Advanced JavaScript",
-      institution: "Online Course",
+      title: "MERN Stack Development",
+      institution: "Programming Hero — Level 1",
+      badge: "Completed",
+      badgeColor: "#00ff94",
       description:
-        "Mastered modern JavaScript concepts including ES6+, async/await, and design patterns",
+        "Comprehensive full-stack web development training using MongoDB, Express, React, and Node.js. Built 12+ production-ready applications including dashboards, e-commerce systems, and real-time collaboration tools.",
+      tags: [
+        { icon: <FaReact />, label: "React.js", color: "#00d8ff" },
+        { icon: <FaNodeJs />, label: "Node.js", color: "#68a063" },
+        { icon: <SiExpress />, label: "Express", color: "#cccccc" },
+        { icon: <SiMongodb />, label: "MongoDB", color: "#589636" },
+        { icon: <SiFirebase />, label: "Firebase", color: "#ffca28" },
+        { icon: <SiJsonwebtokens />, label: "JWT", color: "#d63aff" },
+        { icon: <RiTailwindCssFill />, label: "Tailwind", color: "#38bdf8" },
+        { icon: <SiJavascript />, label: "JavaScript", color: "#f7df1e" },
+      ],
+      missions: [
+        "JavaScript ES6+ & React fundamentals",
+        "Node.js & Express REST APIs",
+        "MongoDB & Mongoose ODM",
+        "Firebase Auth & JWT",
+        "Full Stack project deployments",
+      ],
     },
     {
       icon: <FaLaptopCode className="text-3xl" />,
       title: "UI/UX Design Fundamentals",
       institution: "Creative IT Institute",
+      badge: "Completed",
+      badgeColor: "#00ff94",
       description:
-        "Learned principles of user interface and experience design with Figma",
+        "Learned principles of user interface and experience design with Figma including wireframing, prototyping, and design systems.",
+      tags: [],
+      missions: [
+        "Figma & Prototyping",
+        "Design Systems & Components",
+        "UX Research & Wireframing",
+      ],
     },
   ];
 
@@ -76,7 +153,7 @@ const Education = () => {
       id="education"
       className="py-20 px-4 bg-gray-950 relative overflow-hidden"
     >
-      {/* Animated background elements */}
+      {/* Animated background dots */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(30)].map((_, i) => (
           <motion.div
@@ -128,12 +205,12 @@ const Education = () => {
             className="h-1 md:h-1.5 mt-3 md:mt-4 mx-auto w-24 md:w-32"
             style={{ backgroundColor: primaryColor, originX: 0 }}
           />
-          <p className="text-base sm:text-lg md:text-xl text-gray-400 mt-4 md:mt-6 max-w-2xl md:max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 mt-4 md:mt-6 max-w-3xl mx-auto">
             My academic path and professional certifications
           </p>
         </motion.div>
 
-        {/* Education Timeline */}
+        {/* ── Academic Timeline ── */}
         <div className="mb-24">
           <motion.h3
             initial={{ opacity: 0 }}
@@ -174,19 +251,16 @@ const Education = () => {
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   className={`absolute top-0 ${
-                    index % 2 === 0 ? "md:right-0" : "md:left-0"
-                  } z-10 px-3 py-1 rounded-full text-xs font-bold tracking-wide ${
-                    index % 2 === 0 ? "md:-mr-14" : "md:-ml-14"
-                  }`}
-                  style={{
-                    backgroundColor: primaryFaded,
-                    color: primaryColor,
-                  }}
+                    index % 2 === 0
+                      ? "md:right-0 md:-mr-14"
+                      : "md:left-0 md:-ml-14"
+                  } z-10 px-3 py-1 rounded-full text-xs font-bold tracking-wide`}
+                  style={{ backgroundColor: primaryFaded, color: primaryColor }}
                 >
                   {edu.year}
                 </motion.div>
 
-                {/* Timeline dot with pulse animation */}
+                {/* Timeline dot */}
                 <motion.div
                   className="absolute top-4 left-0 w-5 h-5 rounded-full border-4 border-gray-900 transform -translate-x-1/2 md:left-1/2 z-10"
                   style={{ backgroundColor: primaryColor }}
@@ -204,10 +278,7 @@ const Education = () => {
                 <motion.div
                   className="absolute top-4 left-0 w-5 h-5 rounded-full transform -translate-x-1/2 md:left-1/2 z-0"
                   style={{ backgroundColor: primaryColor }}
-                  animate={{
-                    scale: [1, 1.5, 1.8],
-                    opacity: [0.4, 0.2, 0],
-                  }}
+                  animate={{ scale: [1, 1.5, 1.8], opacity: [0.4, 0.2, 0] }}
                   transition={{
                     duration: 3,
                     repeat: Infinity,
@@ -217,7 +288,7 @@ const Education = () => {
                   }}
                 />
 
-                {/* Education card */}
+                {/* Card */}
                 <motion.div
                   whileHover={{
                     y: -10,
@@ -230,7 +301,6 @@ const Education = () => {
                     borderLeftWidth: "4px",
                   }}
                 >
-                  {/* Glow effect */}
                   <div className="absolute inset-0 overflow-hidden">
                     <div
                       className="absolute -left-10 -top-10 w-32 h-32 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"
@@ -242,9 +312,7 @@ const Education = () => {
                   </div>
 
                   <div
-                    className={`flex items-center gap-4 mb-4 ${
-                      index % 2 === 0 ? "md:justify-end" : ""
-                    } relative z-10`}
+                    className={`flex items-center gap-4 mb-4 ${index % 2 === 0 ? "md:justify-end" : ""} relative z-10`}
                   >
                     <motion.div
                       whileHover={{ rotate: 10 }}
@@ -265,9 +333,7 @@ const Education = () => {
                   </div>
 
                   <ul
-                    className={`space-y-2 ${
-                      index % 2 === 0 ? "md:text-right" : ""
-                    } relative z-10`}
+                    className={`space-y-2 ${index % 2 === 0 ? "md:text-right" : ""} relative z-10`}
                   >
                     {edu.details.map((detail, i) => (
                       <motion.li
@@ -294,7 +360,7 @@ const Education = () => {
           </div>
         </div>
 
-        {/* Courses Section */}
+        {/* ── Professional Courses ── */}
         <div>
           <motion.h3
             initial={{ opacity: 0 }}
@@ -321,57 +387,103 @@ const Education = () => {
                 }}
                 className="relative group"
               >
-                {/* Course card */}
                 <div
-                  className="h-full p-6 rounded-xl bg-gray-900/70 border border-gray-800 overflow-hidden relative"
+                  className="h-full p-6 rounded-xl bg-gray-900/70 border border-gray-800 overflow-hidden relative flex flex-col"
                   style={{
                     boxShadow: `0 10px 30px -10px ${primaryColor}20`,
-                    borderTopColor: primaryColor,
+                    borderTopColor: course.badgeColor,
                     borderTopWidth: "3px",
                   }}
                 >
-                  {/* Gradient background */}
+                  {/* Hover gradient */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div
-                      className="absolute inset-0 bg-gradient-to-br opacity-60"
+                      className="absolute inset-0"
                       style={{
-                        background: `linear-gradient(135deg, ${primaryColor}10 0%, transparent 70%)`,
+                        background: `linear-gradient(135deg, ${primaryColor}08 0%, transparent 70%)`,
                       }}
                     />
                   </div>
 
-                  <div className="relative z-10">
-                    <motion.div
-                      whileHover={{ rotate: 15, scale: 1.1 }}
-                      className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
-                      style={{
-                        backgroundColor: primaryFaded,
-                        boxShadow: `0 0 20px ${primaryColor}20`,
-                      }}
-                    >
-                      {course.icon}
-                    </motion.div>
-                    <h4 className="text-xl font-bold text-white mb-2">
+                  <div className="relative z-10 flex flex-col h-full">
+                    {/* Header row */}
+                    <div className="flex items-start justify-between mb-4">
+                      <motion.div
+                        whileHover={{ rotate: 15, scale: 1.1 }}
+                        className="w-14 h-14 rounded-xl flex items-center justify-center"
+                        style={{
+                          backgroundColor: primaryFaded,
+                          boxShadow: `0 0 20px ${primaryColor}20`,
+                        }}
+                      >
+                        {course.icon}
+                      </motion.div>
+                      <span
+                        className="text-xs font-bold px-3 py-1 rounded-full"
+                        style={{
+                          backgroundColor: `${course.badgeColor}20`,
+                          color: course.badgeColor,
+                          border: `1px solid ${course.badgeColor}40`,
+                        }}
+                      >
+                        {course.badge}
+                      </span>
+                    </div>
+
+                    <h4 className="text-xl font-bold text-white mb-1">
                       {course.title}
                     </h4>
-                    <p className="text-gray-400 mb-4">{course.institution}</p>
-                    <p className="text-gray-300">{course.description}</p>
+                    <p
+                      className="text-sm font-semibold mb-3"
+                      style={{ color: primaryColor }}
+                    >
+                      {course.institution}
+                    </p>
+                    <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                      {course.description}
+                    </p>
 
-                    {/* Floating dots decoration */}
-                    <div className="absolute -bottom-4 -right-4 w-20 h-20 opacity-10 group-hover:opacity-30 transition-opacity">
-                      {[...Array(10)].map((_, i) => (
-                        <div
-                          key={i}
-                          className="absolute rounded-full"
-                          style={{
-                            width: `${Math.random() * 6 + 2}px`,
-                            height: `${Math.random() * 6 + 2}px`,
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
-                            backgroundColor: primaryColor,
-                          }}
-                        />
-                      ))}
+                    {/* Tech tags */}
+                    {course.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {course.tags.map((tag, i) => (
+                          <span
+                            key={i}
+                            className="flex items-center gap-1 text-xs px-2 py-1 rounded-md"
+                            style={{
+                              backgroundColor: `${tag.color}15`,
+                              color: tag.color,
+                              border: `1px solid ${tag.color}30`,
+                            }}
+                          >
+                            {tag.icon}
+                            {tag.label}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Key Topics */}
+                    <div className="mt-auto">
+                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                        Key Topics
+                      </p>
+                      <ul className="space-y-1">
+                        {course.missions.map((m, i) => (
+                          <li
+                            key={i}
+                            className="flex items-start gap-2 text-xs text-gray-400"
+                          >
+                            <span
+                              style={{ color: primaryColor }}
+                              className="mt-0.5 shrink-0"
+                            >
+                              ▹
+                            </span>
+                            {m}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </div>
