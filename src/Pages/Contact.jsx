@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
 import { FiPhone, FiMail, FiMapPin, FiSend, FiLinkedin } from "react-icons/fi";
 import { useState } from "react";
@@ -92,7 +93,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 bg-gray-950">
+    <section id="contact" className="pt-20 pb-8 px-4 bg-gray-950">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div

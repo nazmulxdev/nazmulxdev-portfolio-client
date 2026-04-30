@@ -47,8 +47,6 @@ import {
   SiRailway,
 } from "react-icons/si";
 
-// ─── Data ────────────────────────────────────────────────────────────────────
-
 const coreStack = [
   { icon: <FaReact />, name: "React", color: "#00d8ff" },
   { icon: <SiNextdotjs />, name: "Next.js", color: "#ffffff" },
@@ -187,7 +185,7 @@ const Skill = () => {
   const primaryColor = "#00ff94";
 
   return (
-    <section id="skills" className="py-20 px-4 bg-gray-950">
+    <section id="skills" className="pt-20 pb-10 px-4 bg-gray-950">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div

@@ -611,7 +611,10 @@ const Project = () => {
   const project = projects[activeProject];
 
   return (
-    <section id="projects" className="w-full py-20 bg-gray-950 overflow-hidden">
+    <section
+      id="projects"
+      className="w-full pt-16 pb-8 bg-gray-950 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div

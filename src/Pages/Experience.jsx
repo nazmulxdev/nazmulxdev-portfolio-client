@@ -2,15 +2,12 @@
 import { motion } from "framer-motion";
 import {
   FaCode,
-  FaGraduationCap,
   FaSearch,
   FaRocket,
   FaLayerGroup,
-  FaServer,
   FaDocker,
   FaNodeJs,
 } from "react-icons/fa";
-import { TbBrandAws } from "react-icons/tb";
 import {
   SiTypescript,
   SiNextdotjs,
@@ -25,6 +22,7 @@ import {
   SiFirebase,
   SiJsonwebtokens,
 } from "react-icons/si";
+import { TbBrandAws } from "react-icons/tb";
 
 const Experience = () => {
   const primaryColor = "#00ff94";
@@ -112,17 +110,8 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="py-20 px-4 bg-gray-950 relative overflow-hidden"
+      className="pt-20 pb-8 px-4 relative overflow-hidden"
     >
-      {/* Background grid texture */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(${primaryColor} 1px, transparent 1px), linear-gradient(90deg, ${primaryColor} 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
-        }}
-      />
-
       <div className="max-w-6xl mx-auto relative z-10">
         {/* ── Section Header ── */}
         <motion.div

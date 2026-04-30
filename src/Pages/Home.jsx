@@ -123,7 +123,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="min-h-screen py-20 px-4 bg-gray-950 flex items-center"
+      className="min-h-screen pt-20 pb-8 px-4 bg-gray-950 flex items-center"
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* Mobile: Profile Image First */}
