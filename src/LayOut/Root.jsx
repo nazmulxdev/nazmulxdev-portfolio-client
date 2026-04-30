@@ -82,7 +82,7 @@ const Root = () => {
             w-full items-center justify-between
             xl:px-48 px-8 py-3
             fixed top-0 z-50
-            border-b border-[#00ff94]/20
+            border-b-4 border-[#00ff94]/20
             rounded-b-2xl
             backdrop-blur-xl
             shadow-[0_1px_30px_rgba(0,255,148,0.07)]
@@ -131,7 +131,7 @@ const Root = () => {
             fixed top-0 left-0 right-0 z-50
             flex items-center justify-between
             px-5 py-3
-            border-b border-[#00ff94]/15
+            border-b-4 border-[#00ff94]/15
             rounded-b-2xl
             backdrop-blur-xl
             shadow-[0_1px_20px_rgba(0,255,148,0.06)]
@@ -169,7 +169,7 @@ const Root = () => {
             fixed bottom-0 left-0 right-0 z-50
             flex items-center justify-around
             px-2 pt-2 pb-[env(safe-area-inset-bottom,8px)]
-            border-t border-[#00ff94]/15
+            border-t-2 border-[#00ff94]/15
             rounded-t-2xl
             backdrop-blur-2xl
             shadow-[0_-1px_30px_rgba(0,255,148,0.08)]
